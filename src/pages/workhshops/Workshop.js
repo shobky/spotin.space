@@ -27,7 +27,6 @@ const Workshop = () => {
     }
 
 
-
     return (
         <div>
             <Nav className="workshops-nav" page={page} />

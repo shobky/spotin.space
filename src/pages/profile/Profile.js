@@ -28,7 +28,7 @@ const Profile = () => {
         setTimeSpent(time)
     }
 
-   
+
 
 
     useEffect(() => {
@@ -61,56 +61,52 @@ const Profile = () => {
             <nav>
                 <Nav page={page} />
             </nav>
-            <div className='profile_ico-section'>
-                {/* <Link to="/"><IoArrowBackSharp className='profile_back-ico profile_ico' /></Link> */}
-                <Link to="/edit-profile"><RiEdit2Fill className='profile_edit-ico profile_ico' /></Link>
-            </div>
+            {/* <Link to="/"><IoArrowBackSharp className='profile_back-ico profile_ico' /></Link> */}
+            <Link to="/edit-profile"><RiEdit2Fill className='profile_edit-ico profile_ico' /></Link>
             <div className='profile_content-container'>
-                <header>
-                    <img className='profile_header_user-photo' src={user.photoURL} alt="" />
-                    <div>
-                        {
-                            user.displayName.length > 12 ?
-                                <div className='profile_header-user-info__long'>
-                                    <h1 className='profile_heder_user-name__long'>{user.displayName}</h1>
-                                    <p className='profile_heder_uid'>#{fireStoreCurrentUser?.uid}</p>
-                                </div>
 
-                                :
-                                <div className='profile_header-user-info'>
-                                    <h1 className='profile_heder_user-name'>{user.displayName}</h1>
-                                    <p className='profile_heder_uid'>#{fireStoreCurrentUser?.uid}</p>
-                                </div>}
-                        {/* <p className='special-badge'><DiJsBadge className='special-badge-icon' /> Website Developer</p> */}
-                    </div>
-
-
-                </header>
-
-                <div className='profile_user-contacts-section'>
-                    <div>
-                        <p className='profile_user-contacts'> <MdOutlineEmail style={{ position: "relative", top: "3px", marginRight: "10px" }} /> {user.email}</p>
-                    </div>
-                </div>
-
-                <div className='profile_activity-section'>
-                    <div>
-                        <p className='profile_activity-num'>0</p>
-                        <p className='profile_activity-label'>Events</p>
-                    </div>
-                    <div>
-                        <p className='profile_activity-num'>0</p>
-                        <p className='profile_activity-label'>Workshops</p>
-                    </div>
-                    <Link style={{ textDecoration: "none" }} to="/profile/orders">
+                <div className='profile_header-contaienr'>
+                    <header>
+                        <img className='profile_header_user-photo' src={user.photoURL} alt="" />
                         <div>
-                            <p className='profile_activity-num'>{userOrders?.length ?? 0}</p>
-                            <p className='profile_activity-label'>Orders</p>
-                        </div></Link>
+                            {
+                                user.displayName.length > 12 ?
+                                    <div className='profile_header-user-info__long'>
+                                        <h1 className='profile_heder_user-name__long'>{user.displayName}</h1>
+                                        <p className='profile_heder_uid'>#{fireStoreCurrentUser?.uid}</p>
+                                    </div>
+
+                                    :
+                                    <div className='profile_header-user-info'>
+                                        <h1 className='profile_heder_user-name'>{user.displayName}</h1>
+                                        <p className='profile_heder_uid'>#{fireStoreCurrentUser?.uid}</p>
+                                    </div>}
+                            {/* <p className='special-badge'><DiJsBadge className='special-badge-icon' /> Website Developer</p> */}
+                        </div>
+                    </header>
+
+                    <div className='profile_user-contacts-section'>
+                        <div>
+                            {/* <p className='profile_user-contacts'> <MdOutlineEmail style={{ position: "relative", top: "3px", marginRight: "10px" }} /> {user.email}</p> */}
+                        </div>
+                    </div>
+
+                    <div className='profile_activity-section'>
+                        <div>
+                            <p className='profile_activity-num'>0</p>
+                            <p className='profile_activity-label'>Events</p>
+                        </div>
+                        <div>
+                            <p className='profile_activity-num'>0</p>
+                            <p className='profile_activity-label'>Workshops</p>
+                        </div>
+                        <Link style={{ textDecoration: "none" }} to="/profile/orders">
+                            <div>
+                                <p className='profile_activity-num'>{userOrders?.length ?? 0}</p>
+                                <p className='profile_activity-label'>Orders</p>
+                            </div></Link>
+                    </div>
                 </div>
-
-                <hr className='inbetweenline' />
-
                 <div className='profile_open-order-container'>
                     {
                         !openExis ?
@@ -126,7 +122,8 @@ const Profile = () => {
                             }
                         }).map((userOrder) => (
                             userOrder ?
-                                <div>
+                                <div className='order-container-in-profile'>
+                                    <h1 className='profile_open-order-header'>SpotIn Order</h1>
                                     <p> <strong>Id: #</strong>{userOrder?.userOrderId}</p>
                                     <p> <strong>Orderd at:</strong> {userOrder?.time}</p>
                                     <p className='profile_open-order_cart-header'>Cart: </p>

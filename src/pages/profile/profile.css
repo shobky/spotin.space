@@ -1,7 +1,6 @@
-.profile_ico-section {
-    display: flex;
-    margin: 20px;
-    justify-content: right;
+.profile_header-contaienr {
+    background-color: rgb(255, 154, 4);
+    padding-bottom: 50px;
 }
 
 .profile_ico {
@@ -10,33 +9,37 @@
 }
 
 .profile_edit-ico {
-    font-size: 25px;
-    margin-top: 3px;
-    color: #ffad42;
-    /* border: 1px solid #ffa229; */
-    background-color: rgba(211, 211, 211, 0.322);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 32px;
+    color: #ffffff;
+    border: 2px solid #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
+    padding: 8px;
     border-radius: 50%;
 }
 
 .profile header {
-    margin: 25px 0 0 25px;
-    display: flex;
-    gap: 10px;
+    padding-top: 60px;
 }
 
 .profile_header_user-photo {
-    width: 85px;
-    height: 85px;
+    width: 135px;
+    height: 135px;
     border-radius: 50%;
+    display: block;
+    border: 2px solid white;
+    box-shadow: 0 0 10px 1px rgb(151, 81, 0);
+    margin: auto;
 }
 
 .profile_header-user-info {
-    margin-top: 15px;
-    margin-left: 30px;
+    margin-top: 30px;
+    margin-left: 20px;
+    color: white;
 }
 
 .profile_header-user-info__long {
@@ -46,20 +49,24 @@
 
 
 .profile_heder_uid {
-    color: rgb(170, 170, 170);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-top: 5px;
+    text-align: center;
 }
+
 
 .profile_user-contacts-section {
     display: flex;
-    justify-content: right;
-    margin-right: 10vw;
+    justify-content: left;
+    margin-left: 10vw;
 }
 
 .profile_user-contacts {
     position: relative;
     top: 30px;
     margin-bottom: 5px;
-    color: #000000b4;
+    color: white;
 }
 
 .profile_activity-section {
@@ -72,13 +79,16 @@
 
 .profile_activity-num {
     font-weight: bold;
-    font-size: 24px;
-    color: #ffa229;
+    font-size: 35px;
+    color: white;
+    font-family: montserrat-black;
+
 }
 
 .profile_activity-label {
-    font-size: 14px;
-    color: #8a683b;
+    font-size: 17px;
+    color: #ffffff96;
+    font-weight: bold;
 }
 
 .profile .inbetweenline {
@@ -160,21 +170,22 @@
 
 @media (min-width:852px) {
     .profile_content-container {
-        margin: 10vh 15vw 0vh 15vw;
+        margin: 0vh 0vw 0vh 0vw;
     }
 
     .profile_header_user-photo {
-        width: 120px;
-        height: 120px;
+        margin-top: 50px;
+        width: 125px;
+        height: 125px;
         border-radius: 50%;
     }
 
     .profile_edit-ico {
+        position: absolute;
         font-size: 25px;
         margin-top: 3px;
-        color: #ffad42;
-        /* border: 1px solid #ffa229; */
-        background-color: rgba(97, 97, 97, 0.13);
+        color: #ffffff;
+        border: 2px solid rgb(255, 255, 255);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -198,6 +209,7 @@
     }
 
 
+
     .profile_activity-label {
         font-size: 20px;
         color: #8a683b;
@@ -206,7 +218,9 @@
     .profile_activity-num {
         font-weight: bold;
         font-size: 35px;
-        color: #ffa229;
+        color: #ffffff;
+        font-family: montserrat-black;
+        
     }
 
     .profile_activity-section {
@@ -219,20 +233,26 @@
 
 
     .profile_heder_user-name {
-        font-size: 30px;
-        color: #ffa229;
+        font-size: 35px;
+        color: #ffffff;
+        text-align: center;
+        font-family: montserrat-ExtraBold;
 
     }
 
     .profile_heder_user-name__long {
         font-size: 30px;
-        color: #ffa229;
+        color: #ffffff;
+        text-align: center;
+        font-family: montserrat-ExtraBold;
+
+
 
     }
 
     .profile_heder_uid {
-        color: rgb(170, 170, 170);
-        font-size: 20px;
+        color: rgba(255, 255, 255, 0.87);
+        font-size: 30px;
     }
 
     .special-badge {
@@ -242,57 +262,92 @@
         margin-left: 30px;
         margin-top: 10px;
     }
+    .profile_open-order-container {
+        margin: 20px;
+        height: fit-content;
+        padding-bottom: 5px;
+        font-size: 24px;
+    }
+
+    .order-container-in-profile {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        padding-bottom: 70px;
+    }
 
 }
 
 @media (max-width:851px) {
     .profile_open-order-container {
         margin: 20px;
-        overflow-y: scroll;
-        height: 36.8%;
+        height: fit-content;
         padding-bottom: 5px;
     }
 
-    .profile_open-order_cart-header{
+    .order-container-in-profile {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        padding-bottom: 70px;
+    }
+
+    .profile_open-order_cart-header {
         margin-top: 10px;
         font-weight: bold;
         font-size: 18px;
         color: rgb(255, 157, 29);
 
     }
-    .profile_cart-items-continaer{
+
+    .profile_cart-items-continaer {
         margin-left: 25px;
         margin-bottom: 15px;
     }
-    .profile_open-order_total{
+
+    .profile_open-order_total {
         font-weight: bold;
-        font-size: 30px;
+        font-size: 40px;
         text-align: center;
         margin-top: 18px;
         color: rgb(255, 157, 29);
     }
-    .profile_open-order_tkt-type span{
+
+    .profile_open-order_tkt-type span {
         color: rgb(255, 157, 29);
 
         font-weight: bold;
     }
-    .profile_no-open-order-msg{
+
+    .profile_no-open-order-msg {
         font-weight: bold;
         font-size: 22px;
     }
+
     .profile_heder_user-name {
-        font-size: 22px;
-        color: #ffa229;
+        font-size: 34px;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        font-family: montserrat-Bold;
         margin-top: -10px;
-    
+
     }
-    
+
     .profile_heder_user-name__long {
-        font-size: 21px;
-        width: 50vw;
+        text-align: center;
+        font-size: 30px;
         margin-top: -15px;
-        color: #ffa229;
-    
+        color: white;
+
     }
-    
+
+    .profile_open-order-header {
+        font-family: montserrat-ExtraBold;
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
 }
