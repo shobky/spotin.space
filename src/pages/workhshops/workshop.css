@@ -46,7 +46,7 @@
 
 }
 
-.workhshop_flier-cover-filter {
+/* .workhshop_flier-cover-filter {
     background: rgb(255, 255, 255);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.884) 45%, rgba(5, 5, 5, 0.212) 55%);
     width: 95vw;
@@ -60,7 +60,7 @@
     color: white;
     transition: ease-in-out .4s;
 
-}
+} */
 
 
 
@@ -251,7 +251,7 @@
 
 @media (min-width:852px) {
     .workshop_workshop-name {
-        margin-top: 350px;
+        margin-top: 425px;
         margin-left: 15px;
     }
 
@@ -273,7 +273,7 @@
 
     .workhshop_flier-cover-filter {
         background: rgb(255, 255, 255);
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.884) 45%, rgba(5, 5, 5, 0.212) 55%);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.884) 30%, rgba(5, 5, 5, 0.212) 55%);
         width: 40vw;
         height: 80vh;
         position: absolute;

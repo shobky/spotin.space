@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './workshop.css'
-import piano from '../../assets/workhsops/piano.jfif'
+import piano from '../../assets/workhsops/piano.jpg'
 import english from '../../assets/workhsops/engllish.jpg'
 import graphic from '../../assets/workhsops/graphic.jpg'
 
@@ -17,34 +17,6 @@ import { RiMenuAddLine } from 'react-icons/ri'
 
 const Workshop = () => {
     const page = "workshops"
-    const [touchStart, setTouchStart] = useState(null)
-    const [touchEnd, setTouchEnd] = useState(null)
-    const navigate = useNavigate()
-    // the required distance between touchStart and touchEnd to be detected as a swipe
-    const minSwipeDistance = 50
-
-    const onTouchStart = (e) => {
-        setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
-        setTouchStart(e.targetTouches[0].clientX)
-    }
-
-    const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX)
-
-    const onTouchEnd = () => {
-        if (!touchStart || !touchEnd) return
-        const distance = touchStart - touchEnd
-        const isLeftSwipe = distance > minSwipeDistance
-        const isRightSwipe = distance < -minSwipeDistance
-        if (isLeftSwipe || isRightSwipe) {
-            // ('swipe', isLeftSwipe ? navigate('/home') : navigate('/profile'))
-            if (isRightSwipe) {
-                navigate('/')
-            } else if (isLeftSwipe) {
-                navigate('/profile')
-            }
-        }
-        // add your conditional logic here
-    }
 
     const showMoreHome = () => {
         const moreHome = document.getElementById('homeMore')
@@ -103,23 +75,20 @@ const Workshop = () => {
 
     }
     return (
-        <div style={{ height: "100vh", overflow: "hidden" }} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
+        <div >
 
-            <div className='workshops_commint-soon-filter'>
-                    <Nav className="workshops-nav" page={page} />
+            <Nav className="workshops-nav" page={page} />
 
-                    <header className='workhsops-header'>
-                        <h1 className='workshop_name'>workShops</h1>
-                        <div style={{
-                            display: "flex", alignItems: "center"
-                        }}>
-                            <Link to='/events'><IoMdSwap className='workshop_swap-ico' /></Link>
-                            <p><CgMenuRight onClick={showMoreHome} className="workshop_burger-menu-icon" /></p>
-                        </div>
-                        <HomeMore />
-                    </header>
-                <p className='workshop-filter-txt'>comming soon</p>
-            </div>
+            <header className='workhsops-header'>
+                <h1 className='workshop_name'>workShops</h1>
+                <div style={{
+                    display: "flex", alignItems: "center"
+                }}>
+                    <Link to='/events'><IoMdSwap className='workshop_swap-ico' /></Link>
+                    <p><CgMenuRight onClick={showMoreHome} className="workshop_burger-menu-icon" /></p>
+                </div>
+                <HomeMore />
+            </header>
             <div id='workshopContainer' className='workshop'>
 
                 <div id='graphicReadMore' className='workshop_flier-container'>
@@ -129,7 +98,6 @@ const Workshop = () => {
                         <h1 className='workshop_workshop-name workshop_workshop-name__graphic'>Graphic Design Workshop</h1>
                         <p className='workshop_workshop-level'>Beginner Level</p>
                         <p className='workshop_workshop-appointment'>Every Mon & Wed 4-6 PM</p>
-                        <p className='workshop_workshop-price'>Price: 800LE / Level <br /> {`(10 sessions)`}.</p>
                         <button className='workshop_join-btn'><RiMenuAddLine /></button>
                         <button onClick={openGraphic} className='workshop_expand-ico'><MdExpandMore /></button>
                         <article>
@@ -158,7 +126,6 @@ const Workshop = () => {
                         <h1 className='workshop_workshop-name'>Piano Workshop</h1>
                         <p className='workshop_workshop-level'>Beginner to advanced</p>
                         <p className='workshop_workshop-appointment'>Every Friday 1-3 PM</p>
-                        <p className='workshop_workshop-price'>Price: 250LE / Month.</p>
                         <button className='workshop_join-btn'><RiMenuAddLine /></button>
                         <button onClick={openWorkshop} className='workshop_expand-ico'><MdExpandMore /></button>
                         <article>
@@ -180,7 +147,7 @@ const Workshop = () => {
                     </div>
                 </div>
 
-                <div id='workshopReadMoregd' className='workshop_flier-container'>
+                {/* <div id='workshopReadMoregd' className='workshop_flier-container'>
                     <img className='workhshop_flier-cover-photo' src={english} alt="" />
                     <div className='workhshop_flier-cover-filter'>
                         <IoClose onClick={closeWorkshopgd} className="workshop_close-ico" />
@@ -207,7 +174,7 @@ const Workshop = () => {
 
                         </article>
                     </div>
-                </div>
+                </div> */}
 
             </div></div>
     )

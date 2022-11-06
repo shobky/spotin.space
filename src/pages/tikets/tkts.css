@@ -44,6 +44,10 @@
     
 }
 @media (min-width:852px) {
+    .tkts_burger-menu-icon{
+      display: none;
+
+    }
     .tkts-page-container{
         width: 100vw;
         height: 100%;

@@ -94,7 +94,7 @@ const Evets = () => {
 
                 {/* <p>There is no upcoming events, come back soon.</p> */}
                 <div className='event-container'>
-                    <div className='events-nomore-going'></div>
+                    {/* <div className='events-nomore-going'></div>
                     <div className='event-border-top-r'></div>
                     <div className='event-border-top-l'></div>
 
@@ -130,8 +130,9 @@ const Evets = () => {
                         <div>
 
                         </div>
-                    </div>
+                    </div> */}
                 </div>
+                <p className='events-no-upcoming'> No Upcoming Events </p>
 
             </div></>
     )
