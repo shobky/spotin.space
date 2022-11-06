@@ -5,16 +5,10 @@ import { ImShrink2 } from 'react-icons/im'
 import TimeSpent from './TimeSpent'
 
 import { BsFillCircleFill } from 'react-icons/bs'
-import { deleteDoc, doc, setDoc } from 'firebase/firestore'
 import { GiPlainCircle } from 'react-icons/gi'
-import { db } from '../../firebase/Config'
 
-import { MdCancel, MdOutlineAddShoppingCart } from 'react-icons/md'
-
-const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSetter }) => {
+const Receipt = ({ order, userOpen,onSetReceipt, showreceSetter }) => {
     const [timeSpent, setTimeSpent] = useState()
-    const [loading, setLoading] = useState(false)
-    const [paidAmout, setPaidAmount] = useState(0)
     const [orderTotal, setOrderTotal] = useState(0)
 
 
@@ -35,59 +29,6 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
         }
         onSetOrderTotal()
     }, [order, timeSpent])
-
-    const handleOnCheckOut = () => {
-        const paymentMsg = document.getElementById('rec_checkout-payment')
-        paymentMsg.classList.add("rec_checkout-payment__vis")
-    }
-    const onCloseCheckoutMsg = () => {
-        const paymentMsg = document.getElementById('rec_checkout-payment')
-        paymentMsg.classList.remove("rec_checkout-payment__vis")
-    }
-
-    const onCheckout = async () => {
-        setLoading(true)
-        const data = {
-            id: order.id,
-            status: "closed",
-            user: { name: order.user.name, uid: order.user.uid, url: order.user.url ?? "", email: order.user.email ?? "" },
-            userOrderId: order.userOrderId,
-            time: order.time,
-            date: order.date,
-            total: order.total,
-            tickets: order.tickets,
-            cart: order.cart,
-            timeSpent: timeSpent ?? '',
-            paidAmout
-        }
-        await setDoc(doc(db, "closed-orders", `#${order.id}`), data);
-        await setDoc(doc(db, `Users/${order.user.email}/orders/${order.userOrderId}`), data);
-        await deleteDoc(doc(db, "open-orders", `${order.id}#${order.user.uid}`));
-        onSetReceipt()
-        setLoading(false)
-    }
-
-    const onArchive = async () => {
-        setLoading(true)
-        const data = {
-            id: `${order.id}`,
-            status: "archived",
-            user: { name: order.user.name, uid: order.user.uid, url: order.user.url, email: order.user.email ?? "" },
-            time: order.time,
-            date: order.date,
-            total: order.total,
-            tickets: order.tickets,
-            cart: order.cart,
-            timeSpent: order.timeSpent,
-            paidAmout: order.paidAmout
-
-        }
-        await setDoc(doc(db, "archived-orders", `#${order.id}`), data);
-        await deleteDoc(doc(db, "closed-orders", `#${order.id}`));
-        onSetReceipt()
-        setLoading(false)
-
-    }
 
     return (
         <>
@@ -118,12 +59,7 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
                         <img className="rece_avatar" alt='' src={order.user.url} /> : ""
                 }
 
-                {
-                    order.status === "open" ? <MdOutlineAddShoppingCart onClick={handleAddNewItems} className="rec_addNew-ico" /> : ""
-                }
-
                 <div className='receipt_container'>
-
                     <p className='rec_order-id'><GiPlainCircle className={
                         order.status === "open" ? "rec_order-open" : order.status === "closed" ? "rec_order-closed" : "rec-order-archived"
                     } /> Order id:  <strong> #{order.id} </strong></p>
@@ -226,88 +162,6 @@ const Receipt = ({ order, onSetReceipt, handleAddNewItems, userOpen, showreceSet
                     }
                 </div>
             </div>
-
-            <div id='rec_checkout-payment' className='rec_checkout-payment__hidden'>
-                <div onClick={onCloseCheckoutMsg} className='rec_checkout-filter'></div>
-                <div className='rec_checkout-payment-container'>
-                    <div className='rec_checkout-payment-content'>
-                        <MdCancel onClick={onCloseCheckoutMsg} className='rec_checkout-cancel-ico' />
-                        <h1 className='rec_checkout-header'>Payment</h1>
-                        <div className='rec_checkuot-actions'>
-                            <div className='flex'>
-                                <p className='rec_checkout-payment-label'>Subtotal: {orderTotal} L.e</p>
-                            </div>
-                            <div className='flex paid_section-chekcout'>
-                                <p className='rec_checkout-payment-label'>Paid: </p>
-                                <input onChange={(e) => setPaidAmount(e.target.value)} autoFocus={true} placeholder='99 L.e' type="number" className='rec_checkout-payment-input' />
-                            </div>
-                            <hr className='rec_checkout-line' />
-                            <br />
-                            <div className='flex'>
-                                <p className='rec_checkout-payment-label'>Change:</p>
-                                {
-                                    paidAmout > 0 ? paidAmout >= orderTotal ? paidAmout - orderTotal + " L.e" : "Not Enough" : "No Input"
-                                }
-                            </div>
-                            <button
-                                disabled={paidAmout < orderTotal ? true : loading}
-                                onClick={onCheckout}
-
-                                className={paidAmout < orderTotal || loading ? "rec_chekcout-continue-btn__disable" : 'rec_chekcout-continue-btn'}>Continue</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {
-                !userOpen ?
-                    <div className='rece_actions'>
-                        {/* counting order total price with tickets again in the bottom */}
-
-                        {
-                            order.status === "open" ?
-                                timeSpent?.length > 0 ?
-                                    <p className='total_in-bottom'>{
-                                        timeSpent[0] >= 2 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
-                                    }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
-                                : order.timeSpent ?
-                                    <p className='total_in-bottom'>{
-                                        order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
-                                    }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
-                        }
-                        {
-                            order.status === 'open' ?
-                                <button
-                                    onClick={handleOnCheckOut}
-                                    className='rece_Checkout-btn'>
-                                    Checkout
-                                </button> :
-                                order.status === "closed" ?
-                                    <button
-                                        disabled={loading}
-                                        className={loading ? " rece_archive-btn__disabled  " : 'rece_Checkout-btn rece_archive-btn '}
-                                        onClick={onArchive}
-                                    >
-                                        Archive
-                                    </button> : ''
-                        }
-                    </div>
-                    :
-
-                    <div style={{ display: "flex", justifyContent: "center", marginTop: "55px" }}>
-                        {
-                            order.status === "open" ?
-                                timeSpent?.length > 0 ?
-                                    <p className='total_in-bottom'>{
-                                        timeSpent[0] >= 2 || timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
-                                    }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
-                                : order.timeSpent ?
-                                    <p className='total_in-bottom'>{
-                                        order.timeSpent[0] >= 2 || order.timeSpent[0] < 0 ? order.total + 15 * order.tickets.number : order.total
-                                    }L.e</p> : <p className='total_in-bottom'>{order.total}L.e</p>
-                        }
-                    </div>
-
-            }
 
         </>
     )
