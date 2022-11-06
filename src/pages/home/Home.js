@@ -63,7 +63,7 @@ const Home = () => {
                     <div className='home_main-flex-container'>
                         <h2 className='home_slogan'>The Space Of The Future.</h2>
                         <div >
-                            <div className='home_main-aloone-div'>
+                            <div style={{zIndex:"99"}} className='home_main-aloone-div'>
                                 <p className=' home_main-Link-div'><p>
                                     <CgCommunity className='home_comm-ico dashboard_ico' />COMMUNITY
                                     <span className='home-link-sub-ifo'>
@@ -72,13 +72,13 @@ const Home = () => {
                                 </p>
                                 </p>
                             </div>
-                            <div className='home_link_div-container'>
-                                <div className='home_main-alone_trafic'>
+                            <div style={{zIndex:"99"}} className='home_link_div-container'>
+                                <div style={{zIndex:"99"}} className='home_main-alone_trafic'>
                                     <p className={tktNum > 30 ? "home_main-trafic__high" : tktNum < 10 ? "home_main-alone_trafic-low" : "home_main-trafic__normal"}>
                                         <TbTrafficCone className='dashboard_ico' /> TRAFFIC
                                         <span className='dashboard-link-sub-ifo'>{tktNum > 30 ? "high" : tktNum < 10 ? "low" : "normal"}</span></p>
                                 </div>
-                                <div className='home_main-halloween-event-div'>
+                                <div style={{zIndex:"99"}} className='home_main-halloween-event-div'>
                                     <a href='#halloween' className=' home_main-Link-div'><p>
                                         WORKSHOPS
                                         <span className='home-link-sub-ifo'> coming soon </span>

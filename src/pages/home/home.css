@@ -652,6 +652,7 @@
         display: flex;
         width: 90vw;
         gap: 5vw;
+        z-index: 999;
 
     }
 
@@ -1079,6 +1080,7 @@
         background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgb(238, 240, 238) 63%, rgba(255, 255, 255, 1) 100%);
         overflow: hidden;
         width: 100vw;
+        padding-bottom: 75px;
         height: calc(100vh - 60px);
         position: relative;
         /* background: rgb(255, 255, 255);
@@ -1153,13 +1155,16 @@
 
         /* color: #000000; */
     }
+    .home_main-flex-container {
+        z-index: 2;
+    }
 
     .homee_section-1-img {
-        width: 350px;
+        width: 100vw;
         position: absolute;
-        bottom: -10;
-        left: 0;
-       
+        bottom: -15px;
+        left: 0px;
+        z-index: 1;
     }
 
     .home_header header {
