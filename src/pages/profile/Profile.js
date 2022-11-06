@@ -8,16 +8,21 @@ import { Link } from 'react-router-dom'
 import { useDb } from '../../contexts/FireStoreContext'
 import Nav from '../../components/nav/Nav'
 import TimeSpent from '../../components/receipt/TimeSpent'
+import { collection } from 'firebase/firestore'
+import { db } from '../../firebase/Config'
+import { useCollectionData } from 'react-firebase-hooks/firestore'
 // import TimeSpent from '../../system/orders/TimeSpent'
 
 const Profile = () => {
     const { user } = useAuth()
-    const { userOrders, fireStoreCurrentUser } = useDb()
+    const { fireStoreCurrentUser } = useDb()
     const page = "profile"
     const [timeSpent, setTimeSpent] = useState()
     const [orderTotal, setOrderTotal] = useState(0)
     const [openExis, setOpenExis] = useState(false)
 
+    const userordersQ = collection(db, `Users/${user.email}/orders`)
+    const [userOrders] = useCollectionData(userordersQ)
 
     const onSetTimeSpent = (time) => {
         setTimeSpent(time)
