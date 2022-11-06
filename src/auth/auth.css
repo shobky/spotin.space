@@ -1,0 +1,527 @@
+.auth-container {
+    padding: 0 5vw 0 5vw;
+    height: 100%;
+    overflow-x: hidden;
+
+
+}
+
+.auth_content {
+    width: 90vw;
+    z-index: 1;
+}
+
+
+.auth_back-arr {
+    position: absolute;
+    top: 24px;
+    left: 20px;
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+    border-radius: 50%;
+    padding: 5px;
+    text-decoration: none;
+}
+
+
+.auth_header {
+    position: absolute;
+    top: 70px;
+    left: 25px;
+    font-size: 15px;
+}
+
+.auth_header-contaeirn {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100vw - 5vw) !important;
+}
+
+
+
+
+.auth_form {
+    display: grid;
+    margin-top: -2vh;
+    padding: 15px;
+    justify-content: center;
+}
+
+
+
+
+.auth_user-change-photo-ico {
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 3px 3px 4px 0px rgba(228, 220, 220, 0.651);
+    padding: 6px;
+    z-index: 1;
+
+}
+
+.auth_user-discard-photo-ico {
+    font-size: 22px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 2px;
+    z-index: 1;
+    position: relative;
+    left: 4px;
+    top: 4px;
+
+}
+
+.auth_user-photo-input {
+    opacity: 1%;
+    z-index: 2;
+    font-size: 18px;
+    position: relative;
+    right: 39px;
+    width: 39px;
+    height: 39px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    bottom: 10px;
+    padding: 6px;
+}
+
+.auth-form-label-div {
+    display: grid;
+    margin-bottom: 15px;
+}
+
+.auth_label {
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.auth_input {
+    border: none;
+    border-bottom: 1.5px solid rgb(184, 184, 184);
+    font-size: 15px;
+    width: 85vw;
+    max-width: 500px;
+    padding: 5px;
+}
+
+.auth_input:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1.5px solid rgb(122, 122, 122);
+    padding-bottom: 3px;
+}
+
+.auth-fomr-gender {
+    display: flex;
+    gap: 5px;
+    position: relative;
+    top: 15px;
+    margin-bottom: -50px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.auth_gender-ico {
+    font-size: 19px;
+    border: 1.5px solid black;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.auth-select-female {
+    background-color: rgb(255, 117, 237);
+    color: white;
+    border: none;
+    padding: 9.5px;
+    transition: ease .3s;
+    transform: rotate(9020deg);
+
+
+}
+
+.auth-select-male {
+    background-color: rgb(81, 185, 255);
+    color: white;
+    border: none;
+    padding: 9.5px;
+    transition: ease .3s;
+    transform: rotate(9020deg);
+
+
+
+
+
+}
+
+.auth_input::placeholder {
+    font-family: montserrat-light;
+}
+
+.auth_btn-container {
+    margin-top: 15px;
+}
+
+.auth_show-password-btn {
+    background-color: transparent;
+    border: none;
+    width: 25px;
+    position: absolute;
+    right: 15px;
+}
+
+.passIco {
+    font-size: 20px;
+    position: relative;
+    top: 5px;
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth_footer {
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+
+.auth_footer-btn {
+    text-decoration: none;
+    border-bottom: 1.5px solid #5a5454;
+    font-weight: bold;
+    color: #5a5454;
+    font-size: 15px;
+}
+
+
+.submit-btn-loading::after {
+    content: "--";
+    background-color: rgb(255, 255, 255);
+    font-size: 20px;
+    position: relative;
+    left: 20px;
+    bottom: 12px;
+    color: white;
+    height: 2px;
+}
+
+.auth_circle-fill,
+.auth_circle-border {
+    font-size: 7;
+}
+
+.auth_circle-fill1 {
+    position: absolute;
+    left: 42vw;
+    top: 15vh;
+    color: rgb(0, 174, 255);
+}
+
+.auth_circle-fill2 {
+    position: absolute;
+    left: 67vw;
+    top: 40vh;
+    color: rgb(140, 0, 255);
+
+}
+
+.auth_circle-fill3 {
+    position: absolute;
+    left: 14vw;
+    color: rgb(255, 0, 140);
+
+    bottom: 8vh;
+}
+
+.auth_circle-border1 {
+    position: absolute;
+    left: 16vw;
+    top: 20vh;
+}
+
+.auth_circle-border2 {
+    position: absolute;
+    left: 80vw;
+    bottom: 35vh;
+}
+
+.auth_forgot-pass {
+    text-decoration: none;
+    position: relative;
+    margin-bottom: -3vh;
+    margin-top: 4.5vh;
+    color: #ff8800;
+    font-weight: bold;
+}
+
+.auth_err {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    position: relative;
+    top: 0px;
+    text-align: center;
+}
+
+.auth_err-signUp {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    position: relative;
+    top: 0px;
+    text-align: center;
+
+}
+
+@media (max-width:635px) {
+    .auth_user-photo_actions p{
+        position: relative;
+        left: -43px;
+        top: -5px;
+        font-size: 10px ;
+        font-weight: bold;
+    
+    }
+    
+    
+    .auth-black-circle-container {
+        overflow: hidden;
+        position: relative;
+        padding-left: 60px;
+    }
+
+    .auth-black-circle {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        box-shadow: 0 0 0px 2px rgb(26, 25, 25);
+        border-radius: 50%;
+        top: -35px;
+        right: 40px;
+
+    }
+
+    .auth_hello-txt-div {
+        width: 40vw;
+    }
+
+    .auth_hello-text {
+        font-size: 40px;
+        font-family: montserrat-bold;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-top: 130px;
+    }
+
+    .auth_hello-sub-text {
+        font-size: 13px;
+        font-weight: bold;
+        width: 200px;
+        color: #5a5454;
+        margin-top: 10px;
+    }
+
+    .auth-user-image {
+        width: 110px;
+        border-radius: 50%;
+        height: 110px;
+        margin-bottom: -100px;
+        position: relative;
+        bottom: 110px;
+        left: 15px;
+    }
+
+    .auth_user-photo_actions {
+        position: relative;
+        right: -75px;
+        bottom: 35px;
+    }
+
+    .sumbit-btn-signup {
+        background-color: transparent;
+        border: 1.5px solid black;
+        border-radius: 50%;
+        padding: 10px;
+        font-size: 15px;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        left: 72vw;
+        top: 25px;
+
+    }
+
+    .submit-btn-loading {
+        background-color: transparent;
+        border: 1.5px solid black;
+        border-radius: 50%;
+        padding: 10px;
+        font-size: 15px;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        left: 72vw;
+        top: 25px;
+        animation: loading-signup 1.5s infinite;
+    }
+
+
+
+    @keyframes loading-signup {
+
+        /* 0 & 100% might not be needed */
+        10% {
+            transform: rotate(720deg);
+            border: 1.5px solid rgb(0, 0, 0);
+
+
+        }
+
+        50% {
+            transform: rotate(360deg);
+            border: 2px solid rgb(0, 0, 0);
+
+        }
+
+        25%,
+        75% {
+            transform: rotate(720deg);
+            border: 2.5px solid rgb(133, 133, 133);
+
+
+        }
+    }
+
+}
+
+@media (min-width:636px) {
+    .auth_user-photo_actions p{
+        position: relative;
+        left: -5vw;
+        top: 10px;
+        font-size: 13px ;
+        font-weight: bold;
+    
+    }
+    
+
+    .auth-black-circle-container {
+        overflow: hidden;
+        position: relative;
+        padding-left: 60px;
+        left: 5vw;
+        margin-bottom: -15vw;
+    }
+
+    .auth-black-circle {
+        position: relative;
+        width: 30vw;
+        height: 30vw;
+        max-width: 350px;
+        max-height: 350px;
+
+        box-shadow: 0 0 0px 2px rgb(26, 25, 25);
+        border-radius: 50%;
+        top: -35px;
+    }
+
+    .auth_hello-txt-div {
+        width: 40vw;
+        margin-left: 10vw;
+    }
+
+    .auth_hello-text {
+        font-size: 55px;
+        font-family: montserrat-bold;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-top: 70px;
+    }
+
+    .auth_hello-sub-text {
+        font-size: 20px;
+        font-weight: bold;
+        width: 50vw;
+        color: #5a5454;
+        margin-top: 10px;
+    }
+
+    .auth-user-image {
+        width: 180px;
+        border-radius: 50%;
+        height: 180px;
+        margin-bottom: -100px;
+        position: relative;
+        bottom: 160px;
+        left: 15px;
+    }
+
+    .auth_user-photo_actions {
+        position: relative;
+        right: -125px;
+        bottom: 95px;
+    }
+
+    .sumbit-btn-signup {
+        background-color: transparent;
+        border: 1.5px solid black;
+        border-radius: 50%;
+        padding: 10px;
+        font-size: 15px;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        left: 59vw;
+        top: 25px;
+
+    }
+
+    .submit-btn-loading {
+        background-color: transparent;
+        border: 1.5px solid black;
+        border-radius: 50%;
+        padding: 10px;
+        font-size: 15px;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        left: 59vw;
+        top: 25px;
+        animation: loading-signup 1.5s infinite;
+    }
+
+
+
+    @keyframes loading-signup {
+
+        /* 0 & 100% might not be needed */
+        10% {
+            transform: rotate(720deg);
+            border: 1.5px solid rgb(0, 0, 0);
+
+
+        }
+
+        50% {
+            transform: rotate(360deg);
+            border: 2px solid rgb(0, 0, 0);
+
+        }
+
+        25%,
+        75% {
+            transform: rotate(720deg);
+            border: 2.5px solid rgb(133, 133, 133);
+
+
+        }
+    }
+}
