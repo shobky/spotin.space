@@ -56,19 +56,18 @@
     font-size: 15px;
     position: relative;
     color: rgb(83, 83, 83);
-    margin-bottom: 5px;
+    margin-bottom: 7px;
 
 }
 
 .edit-profile_form_input {
     width: 90%;
     max-width: 400px;
-    border-radius: 5px;
     height: 50px;
     border: none;
-    border: 1px solid rgb(216, 216, 216);
-    padding: 15px;
-    font-size: 18px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    padding: 15px 15px 0 15px;
+    font-size: 16px;
     display: block;
     margin: auto auto 20px auto;
 }
@@ -199,7 +198,7 @@
 
 @media (min-width:850px) {
     .edit-profile_show-password-btn {
-        font-size: 25px;
+        font-size: 20px;
         width: 25px;
         position: relative;
         bottom: 57px;
@@ -213,7 +212,7 @@
         display: block !important;
         font-size: 19px;
         margin-top: 25px;
-        background-color: rgb(255, 135, 131);
+        background-color: rgb(255, 38, 30);
         margin: 0 40vw 0 40vw;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -226,7 +225,7 @@
 
 @media (max-width:849px) {
     .edit-profile_show-password-btn {
-        font-size: 25px;
+        font-size: 20px;
         width: 25px;
         position: relative;
         bottom: 57px;
@@ -239,7 +238,7 @@
     .edit-profile-wrong__vis {
         display: block !important;
         font-size: 19px;
-        background-color: rgb(255, 135, 131);
+        background-color: rgb(255, 39, 31);
         margin: 0vh 25vw 0 25vw;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -248,12 +247,10 @@
     }
 
     .edit-profile_form label {
-        font-size: 14px;
+        font-size: 15px;
         font-weight: bold;
         color: rgb(32, 32, 32);
-        background-color: white;
         position: relative;
-        top: 12px;
         left: 5px;
         /* display: inline-block; */
         width: fit-content;
