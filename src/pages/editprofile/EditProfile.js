@@ -29,6 +29,7 @@ const EditProfile = () => {
     const [showPassword, setShowPassword] = useState("password")
     const [loading, setLoading] = useState(false)
 
+    console.log(user.auth.currentUser.providerData[0])
 
     const showingthePassword = (e) => {
         e.preventDefault()
