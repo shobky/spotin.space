@@ -48,6 +48,10 @@
     flex-direction: column;
     width: 100%;
     margin-top: 6vh;
+
+    justify-content: center;
+        align-items: center;
+     
 }
 
 .edit-profile_form label {
@@ -57,6 +61,9 @@
     position: relative;
     color: rgb(83, 83, 83);
     margin-bottom: 7px;
+    width: fit-content;
+    position: relative;
+    left: -15vw;
 
 }
 

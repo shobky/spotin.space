@@ -46,63 +46,46 @@ const EditProfile = () => {
         e.preventDefault()
 
 
-        if (currentPasswordRef.current.value === user.auth.currentUser.providerData[0].providerId) {
-            setLoading(true)
-            if (numberRef.current.value?.length > 0 && nameRef.current.value?.length > 0) {
-                await updateDoc(doc(db, "Users", user.email), {
-                    name: newUsername,
-                    // url: user.photoURL
-                    number: numberRef.current.value ?? null
-                }).catch(err => setLoading(false) && console.log(err))
-            } else if (nameRef.current.value?.length > 0) {
-                await updateDoc(doc(db, "Users", user.email), {
-                    name: newUsername,
-                    // url: user.photoURL
-                }).catch(err => setLoading(false) && console.log(err))
-            } else {
-                await updateDoc(doc(db, "Users", user.email), {
-                    number: numberRef.current.value ?? null
-                    // url: user.photoURL
-                }).catch(err => setLoading(false) && console.log(err))
-            }
-            if (photoFile) {
-                const storageRef = ref(storage, `user-photos/${photoFile.name}`)
-                await uploadBytes(storageRef, photoFile).then((snapshot) => {
-                });
-            }
-            const url = photoFile?.name ? await getDownloadURL(ref(storage, `user-photos/${photoFile?.name ?? ""}`)) : ""
-            if (nameRef.current.value?.length > 0) {
-                await updateProfile(auth.currentUser, {
-                    displayName: nameRef.current.value,
-                    photoURL: photoFile?.name ? url : auth.currentUser.photoURL
-                }).catch(err => setLoading(false) && console.log(err))
-            } else {
-                await updateProfile(auth.currentUser, {
-                    // displayName: nameRef.current.value.length > 1 ?? auth.currentUser.displayName,
-                    photoURL: photoFile?.name ? url : auth.currentUser.photoURL
-                }).catch(err => setLoading(false) && console.log(err))
-            }
-            navigate('/profile')
-            const form = document.getElementById('form-edit-prfile')
-            form.reset()
-
-            console.log('done')
+        setLoading(true)
+        if (numberRef.current.value?.length > 0 && nameRef.current.value?.length > 0) {
+            await updateDoc(doc(db, "Users", user.email), {
+                name: newUsername,
+                // url: user.photoURL
+                number: numberRef.current.value ?? null
+            }).catch(err => setLoading(false) && console.log(err))
+        } else if (nameRef.current.value?.length > 0) {
+            await updateDoc(doc(db, "Users", user.email), {
+                name: newUsername,
+                // url: user.photoURL
+            }).catch(err => setLoading(false) && console.log(err))
         } else {
-            setLoading(true)
-            const PssinputId = document.getElementById("editProfilePassId")
-            const wrongpassworderr = document.getElementById("wrongpassworderr")
-
-            PssinputId.classList.remove('edit-profile_form_input')
-
-            PssinputId.classList.add('wrong-password-style')
-            wrongpassworderr.classList.add('edit-profile-wrong__vis')
-            setTimeout(() => {
-                setLoading(false)
-
-            }, 500);
-
-
+            await updateDoc(doc(db, "Users", user.email), {
+                number: numberRef.current.value ?? null
+                // url: user.photoURL
+            }).catch(err => setLoading(false) && console.log(err))
         }
+        if (photoFile) {
+            const storageRef = ref(storage, `user-photos/${photoFile.name}`)
+            await uploadBytes(storageRef, photoFile).then((snapshot) => {
+            });
+        }
+        const url = photoFile?.name ? await getDownloadURL(ref(storage, `user-photos/${photoFile?.name ?? ""}`)) : ""
+        if (nameRef.current.value?.length > 0) {
+            await updateProfile(auth.currentUser, {
+                displayName: nameRef.current.value,
+                photoURL: photoFile?.name ? url : auth.currentUser.photoURL
+            }).catch(err => setLoading(false) && console.log(err))
+        } else {
+            await updateProfile(auth.currentUser, {
+                // displayName: nameRef.current.value.length > 1 ?? auth.currentUser.displayName,
+                photoURL: photoFile?.name ? url : auth.currentUser.photoURL
+            }).catch(err => setLoading(false) && console.log(err))
+        }
+        navigate('/profile')
+        const form = document.getElementById('form-edit-prfile')
+        form.reset()
+
+        console.log('done')
 
     }
     const onChangePhoto = (file) => {
@@ -133,8 +116,6 @@ const EditProfile = () => {
                 <input value={newUsername} onChange={(e) => setNewUsername(e.target.value)} ref={nameRef} className='edit-profile_form_input' placeholder='Name' type="text" name="username" />
                 <label>Number</label>
                 <input ref={numberRef} className='edit-profile_form_input' placeholder='' type="text" name="number" />
-                <label>Current password</label>
-                <input id='editProfilePassId' ref={currentPasswordRef} required={true} className='edit-profile_form_input' placeholder='' type={showPassword} />
                 <div className='edit-prfile_password-div'>
                     <button type="button" className="edit-profile_show-password-btn" onClick={(e) => showingthePassword(e)}>{showPassword === 'password' ? <RiEyeCloseLine className="passIco" /> : <RiEyeLine className="passIco" />}</button>
                 </div>

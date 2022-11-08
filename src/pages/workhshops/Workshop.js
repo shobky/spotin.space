@@ -45,8 +45,6 @@ const Workshop = () => {
             <main className='pspojfdslk'>
                <PianoWS/>
                <GraphicWS/>
-               <PianoWS/>
-               <GraphicWS/>
             </main>
 
         </div>

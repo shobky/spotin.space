@@ -33,7 +33,7 @@ const PianoWS = () => {
                         <p className='workshop_workshop-appointment'>Every Friday 1-3 PM</p>
                     </div>
                     <article className={workshopOpen ? 'workshop-container_article__active' : 'workshop-container_article'} id='workshopArticle'>
-                        <p className='workshop_article-head'>Each workshop is divided into pracitcal and theroratical parts {`( learan how to read notes )`}</p>
+                        <p className='workshop_article-head'>Each workshop is divided into pracitcal and theroratical parts {`( learn how to read notes )`}</p>
                         <br />
                         <p className='workshop_article-list-title'>Topics: </p>
                         <ul className='workshop_article-topic-list'>

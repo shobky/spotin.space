@@ -136,9 +136,9 @@ const Signup = () => {
                         <button type="button" className="auth_show-password-btn" onClick={(e) => showingthePassword(e)}>{showPassword === 'password' ? <RiEyeCloseLine className="passIco" /> : <RiEyeLine className="passIco" />}</button>
                     </div>
                     <div className="auth-form-label-div auth-fomr-gender">
-                        <IoIosMale id="auth_male-ico" onClick={() => handleSelectGender('male')} className="auth_gender-ico" />
+                        <IoIosMale id="auth_male-ico" onClick={() => handleSelectGender('male')} className={gender === 'male' ? "auth_gender__male" : "auth_gender-ico"} />
                         Or
-                        <IoIosFemale id="auth_female-ico" onClick={() => handleSelectGender('female')} className="auth_gender-ico" /> ?
+                        <IoIosFemale id="auth_female-ico" onClick={() => handleSelectGender('female')} className={gender === 'female' ? "auth_gender__female" : "auth_gender-ico"} /> ?
                     </div>
                     <button className={loading ? "submit-btn-loading" : "sumbit-btn-signup"} type="submit"><IoSend /></button>
                 </form>

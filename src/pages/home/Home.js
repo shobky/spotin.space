@@ -68,7 +68,7 @@ const Home = () => {
                                     <CgCommunity className='home_comm-ico dashboard_ico' />COMMUNITY
                                     <span className='home-link-sub-ifo'>
 
-                                       { user? " Thanks for joining our community, welcome" : "Signup and join our community"} </span>
+                                       { user? " Thanks for joining our community, welcome" : <Link style={{color:"white", textDecoration:"none"}} to='/signup'>Signup and join our community</Link>} </span>
                                 </p>
                                 </p>
                             </div>
