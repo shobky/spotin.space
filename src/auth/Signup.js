@@ -50,12 +50,12 @@ const Signup = () => {
             setEdit(false)
             setFile(file)
             const storageRef = ref(storage, `user-photos/${file.name}`)
-
+            setMsg('uploading...')
             uploadBytes(storageRef, file).then((snapshot) => {
-                setMsg(' photo uploaded sucsessfuly ')
+                setMsg('uploaded')
                 setUploaded(true)
             }).catch((err) => {
-                setMsg(err.message)
+                setMsg('Failed')
                 setPhotoURL(noUserPhoto)
                 setFile(null)
             })
@@ -115,7 +115,7 @@ const Signup = () => {
                                     <MdRemove onClick={handlePhotoDiscard} className="auth_user-discard-photo-ico" />
 
                             }
-                            <p>profile picture</p>
+                            <p>{msg ?? "profile picture"}</p>
                         </div>
                     </div>
                 </div>
