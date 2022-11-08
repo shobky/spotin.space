@@ -3,16 +3,14 @@ import { Route, Routes } from "react-router-dom"
 import './assets/fonts/fonts.css'
 
 // Private Routes
-// import UserRotues from "./components/privateRoutes/UserRoutes"
+import UserRotues from "./privateRoutes/UserRoutes"
 
 // pages imports
-// import { DataProvider } from "./contexts/Database"
 import Logo from "./components/loadingAnimaitno/Logo"
 import Settings from "./pages/settings/Settings"
 import Workshop from "./pages/workhshops/Workshop"
 import Profile from "./pages/profile/Profile"
 import AccSettings from "./pages/accSettings/AccSettings"
-import UserRotues from "./privateRoutes/UserRoutes"
 const Login = React.lazy(() => import('./auth/Login'))
 const Signup = React.lazy(() => import('./auth/Signup'))
 const Home = React.lazy(() => import("./pages/home/Home"))
