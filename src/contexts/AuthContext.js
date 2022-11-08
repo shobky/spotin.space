@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react"
 import { auth, db } from "../firebase/Config"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, updateDoc } from "firebase/firestore";
 // import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { uuidv4 } from "@firebase/util";
 import { useNavigate } from "react-router";
@@ -65,6 +65,16 @@ export const AuthProvider = ({ children }) => {
         })
         return unsubsrice
     }, [])
+
+    useEffect(() => {
+        if (user) {
+            if (user.photoURL) {
+                updateDoc(doc(db, "Users", user.email), {
+                    photoURL: user.photoURL,
+                })
+            }
+        }
+    },[user])
 
     const value = {
         EmailAndPasswordSignup,
