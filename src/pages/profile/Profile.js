@@ -120,17 +120,17 @@ const Profile = () => {
                             } else {
 
                             }
-                        }).map((userOrder) => (
+                        }).map((userOrder, index) => (
                             userOrder ?
-                                <div className='order-container-in-profile'>
+                                <div key={index} className='order-container-in-profile'>
                                     <h1 className='profile_open-order-header'>SpotIn Order</h1>
                                     <p> <strong>Id: #</strong>{userOrder?.userOrderId}</p>
                                     <p> <strong>Orderd at:</strong> {userOrder?.time}</p>
                                     <p className='profile_open-order_cart-header'>Cart: </p>
                                     <div className='profile_cart-items-continaer'>
                                         {
-                                            userOrder?.cart.map((cartItem) => (
-                                                <li>{cartItem.qty}x{cartItem?.item.name} {cartItem.qty * cartItem.item.price} L.e</li>
+                                            userOrder?.cart.map((cartItem, index) => (
+                                                <li key={index}>{cartItem.qty}x{cartItem?.item.name} {cartItem.qty * cartItem.item.price} L.e</li>
                                             ))}
 
                                     </div>

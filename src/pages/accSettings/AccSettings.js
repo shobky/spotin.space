@@ -46,7 +46,7 @@ const AccSettings = () => {
                         <div className='accsettings-form-section'>
                             <label>Your Email: </label>
                             <input
-                                value={newemail} type='email' className='acc-settings_input' placeholder='new email' />
+                              onChange={() => ''}  value={newemail} type='email' className='acc-settings_input' placeholder='new email' />
 
                         </div>
                         {

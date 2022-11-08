@@ -64,13 +64,13 @@ const Home = () => {
                         <h2 className='home_slogan'>The Space Of The Future.</h2>
                         <div >
                             <div style={{zIndex:"99"}} className='home_main-aloone-div'>
-                                <p className=' home_main-Link-div'><p>
+                                <div className=' home_main-Link-div'><p>
                                     <CgCommunity className='home_comm-ico dashboard_ico' />COMMUNITY
                                     <span className='home-link-sub-ifo'>
 
                                        { user? " Thanks for joining our community, welcome" : <Link style={{color:"white", textDecoration:"none"}} to='/signup'>Signup and join our community</Link>} </span>
                                 </p>
-                                </p>
+                                </div>
                             </div>
                             <div style={{zIndex:"99"}} className='home_link_div-container'>
                                 <div style={{zIndex:"99"}} className='home_main-alone_trafic'>

@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, up
 import { doc, setDoc } from "firebase/firestore";
 // import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { uuidv4 } from "@firebase/util";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 const AuthContext = React.createContext()
 
 export const useAuth = () => {

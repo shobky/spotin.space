@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import { db } from "../firebase/Config"
-import { collection, deleteDoc, doc, setDoc, updateDoc } from "firebase/firestore";
+import { collection} from "firebase/firestore";
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { useAuth } from "./AuthContext";
 
@@ -22,6 +22,7 @@ export const FireSotreProvider = ({ children }) => {
             if (FilterdFirestoreUser.email === user.email) {
                 return FilterdFirestoreUser
             } else {
+                
             }
         }).map(firestoreMappedUser => {
             setFireStoreCurrentUser(firestoreMappedUser)

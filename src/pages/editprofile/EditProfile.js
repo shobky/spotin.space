@@ -12,7 +12,6 @@ import Nav from '../../components/nav/Nav'
 import Profileblank from '../../assets/avatars/Profile-PNG-File.png'
 
 import './editprofile.css'
-import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 import { ImSpinner2 } from 'react-icons/im'
 
 const EditProfile = () => {
@@ -22,24 +21,11 @@ const EditProfile = () => {
     const [newUsername, setNewUsername] = useState(user.displayName)
 
     const nameRef = useRef()
-    const currentPasswordRef = useRef()
     const numberRef = useRef()
     const navigate = useNavigate()
 
-    const [showPassword, setShowPassword] = useState("password")
     const [loading, setLoading] = useState(false)
 
-    console.log(user.auth.currentUser.providerData[0])
-
-    const showingthePassword = (e) => {
-        e.preventDefault()
-        if (showPassword === "password") {
-            setShowPassword("text")
-        } else {
-            setShowPassword("password")
-
-        }
-    }
 
 
     const onSubmitForm = async (e) => {
@@ -112,14 +98,14 @@ const EditProfile = () => {
                 <input onChange={(e) => onChangePhoto(e.target.files[0])} className='file-input-edit-prifle' type="file" />
             </div>
             <form autoComplete='on' id='form-edit-prfile' onSubmit={onSubmitForm} className='edit-profile_form'>
-                <label>Name</label>
-                <input value={newUsername} onChange={(e) => setNewUsername(e.target.value)} ref={nameRef} className='edit-profile_form_input' placeholder='Name' type="text" name="username" />
-                <label>Number</label>
-                <input ref={numberRef} className='edit-profile_form_input' placeholder='' type="text" name="number" />
-                <div className='edit-prfile_password-div'>
-                    <button type="button" className="edit-profile_show-password-btn" onClick={(e) => showingthePassword(e)}>{showPassword === 'password' ? <RiEyeCloseLine className="passIco" /> : <RiEyeLine className="passIco" />}</button>
+                <div className='edit-profile_form_input-div'>
+                    <label>Name</label>
+                    <input value={newUsername} onChange={(e) => setNewUsername(e.target.value)} ref={nameRef} className='edit-profile_form_input' placeholder='Name' type="text" name="username" />
                 </div>
-
+               <div className='edit-profile_form_input-div'>
+               <label>Number</label>
+                <input ref={numberRef} className='edit-profile_form_input' placeholder='' type="text" name="number" />
+               </div>
                 <p id='wrongpassworderr' className='edit-profile_wrong-err__hid'>Wrong Password</p>
 
                 {

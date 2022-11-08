@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react"
 import { useAuth } from "../contexts/AuthContext"
 import "./auth.css"
-import { useNavigate, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { RiEyeLine, RiEyeCloseLine } from "react-icons/ri";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { GiPlainCircle, GiCircle } from 'react-icons/gi'
@@ -15,7 +15,6 @@ export default function Login() {
     const { EmailAndPasswordLogin, authError } = useAuth()
     const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
-    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -53,17 +52,17 @@ export default function Login() {
                 <br />
                 <br />
 
-                <form autoComplete={true} onSubmit={handleSubmit} className="auth_form">
+                <form autoComplete='on' onSubmit={handleSubmit} className="auth_form">
                     <div className="auth-form-label-div">
                         <label className="auth_label">Email </label>
-                        <input autoComplete="email" placeholder="examble@provider.com" className="Log-in_auth_input auth_input" ref={emailRef} required name="email" type="email" />
+                        <input autoComplete="on" placeholder="examble@provider.com" className="Log-in_auth_input auth_input" ref={emailRef} required name="email" type="email" />
                     </div>
 
                     <div className="auth-form-label-div">
                         <label className="auth_label"> Password </label>
                         <div style={{ position: "relative" }}>
 
-                            <input autoComplete="current-password" placeholder="enter your password" id="password_input" className="Log-in_auth_input auth_input" ref={passwordRef} required name="password" type={showPassword ? "text" : "password"} />
+                            <input autoComplete="on" placeholder="enter your password" id="password_input" className="Log-in_auth_input auth_input" ref={passwordRef} required name="password" type={showPassword ? "text" : "password"} />
                             <button type="button" className="auth_show-password-btn" onClick={showingthePassword}>{showPassword ? <RiEyeLine className="passIco" /> : <RiEyeCloseLine className="passIco" />}</button>
                         </div>
                     </div>

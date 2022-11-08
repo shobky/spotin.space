@@ -79,8 +79,8 @@ const MyOrders = () => {
                                         else {
 
                                         }
-                                    }).map((userOrder) => (
-                                        <div className='userOrder-viw'>
+                                    }).map((userOrder, idnex) => (
+                                        <div key={idnex} className='userOrder-viw'>
                                             {
                                                 fav ? <VscHistory onClick={() => setFav(false)} className='userOrder-view-star__active' /> : <VscHistory onClick={() => setFav(true)} className='userOrder-view-star' />
                                             }
