@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { IoMdSwap } from 'react-icons/io'
 import { Link } from 'react-router-dom'
-import halloweenImg from '../../assets/workhsops/halloween.jpg'
 import Nav from '../../components/nav/Nav'
 import { doc, setDoc, collection, deleteDoc, updateDoc } from 'firebase/firestore'
 import { db } from '../../firebase/Config'

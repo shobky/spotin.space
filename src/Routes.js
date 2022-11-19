@@ -11,6 +11,7 @@ import Settings from "./pages/settings/Settings"
 import Workshop from "./pages/workhshops/Workshop"
 import Profile from "./pages/profile/Profile"
 import AccSettings from "./pages/accSettings/AccSettings"
+import MyWorkshops from "./pages/myWorkshops/MyWorkshops"
 const Login = React.lazy(() => import('./auth/Login'))
 const Signup = React.lazy(() => import('./auth/Signup'))
 const Home = React.lazy(() => import("./pages/home/Home"))
@@ -31,7 +32,7 @@ const AllRoutes = () => {
             </Suspense>} />
             <Route path='*' element={<Suspense fallback={<Logo />}>
                 <Page404 />
-            </Suspense>} /> 
+            </Suspense>} />
             <Route path='/signup' element={<Suspense fallback={<Logo />}>
                 <Signup />
             </Suspense>} />
@@ -44,7 +45,6 @@ const AllRoutes = () => {
             <Route path='/tikets' element={<Suspense fallback={<Logo />}>
                 <Tikets />
             </Suspense>} />
-            <Route path="/workshops" element={<Workshop />} />
             <Route path="/settings/reset-password" element={
                 <AccSettings />
             } />
@@ -67,6 +67,10 @@ const AllRoutes = () => {
                 <Route path="/settings" element={
                     <Settings />
                 } />
+                <Route path="/workshops" element={<Workshop />} />
+                <Route path="/profile/my-workshops" element={<MyWorkshops />} />
+
+                
             </Route>
         </Routes>
     )

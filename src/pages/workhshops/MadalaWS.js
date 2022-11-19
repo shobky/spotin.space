@@ -1,28 +1,27 @@
 import React, { useState } from 'react'
-import piano from '../../assets/workhsops/piano.jpg'
-import { IoMdSwap } from 'react-icons/io'
 import { MdExpandMore } from 'react-icons/md'
 import { RiMenuAddLine } from 'react-icons/ri'
 import { IoClose } from 'react-icons/io5'
+import mandala from '../../assets/workhsops/mandala.jfif'
 import { useEffect } from 'react'
 import { BiCheckDouble } from 'react-icons/bi'
 
 
-const PianoWS = ({ AutoFillWorkshop, fireStoreCurrentUser }) => {
+
+const MandalaWs = ({ AutoFillWorkshop,fireStoreCurrentUser }) => {
     const [workshopOpen, setWorkshopOpen] = useState(false)
     const [signed, setSigned] = useState(false)
 
     useEffect(() => {
         if (fireStoreCurrentUser?.workshops) {
             fireStoreCurrentUser.workshops.map((workshop) => {
-                if (workshop === 'piano') {
+                if (workshop === 'mandala') {
                     setSigned(true)
                 } else {
                 }
             })
         }
     }, [fireStoreCurrentUser])
-
 
     const openWorkShop = () => {
         setWorkshopOpen(true)
@@ -40,38 +39,40 @@ const PianoWS = ({ AutoFillWorkshop, fireStoreCurrentUser }) => {
                         <IoClose onClick={closeWorkshop} className="workshop_close-ico" />
                         : ""
                 }
-                <img className='workshop-container_img' src={piano} alt="" />
+                <img className='workshop-container_img' src={mandala} alt="" />
                 <div id='workshopInfo' className='workshop-container_basic-info'>
                     <div className='workshop_basic-info-header'>
-                        <p className='workshop_workshop-level'>Beginner to advanced</p>
-                        <p className='workshop_workshop-appointment'>Every Friday 1-3 PM</p>
+                        <p className='workshop_workshop-level'> No specific level </p>
+                        <p className='workshop_workshop-appointment'>Every Mon & Wed 4-6 PM</p>
                     </div>
                     <article className={workshopOpen ? 'workshop-container_article__active' : 'workshop-container_article'} id='workshopArticle'>
                         <div className='workshop_overflow'>
+                            <p className='workshop_article-head'>
+                                Facilitator: Ms. Nadeen Abdella
 
-                            <p className='workshop_article-head'>Each workshop is divided into pracitcal and theroratical parts {`( learn how to read notes )`}</p>
+                            </p>
+
+                            <p className='workshop_article-head'>Learning Mandala doesn't require a specific level or experience in drawing because the main purpose of Mandala is releasing negative energy and inner peace.</p>
                             <br />
                             <p className='workshop_article-list-title'>Topics: </p>
-                            <ul className='workshop_article-topic-list'>
-                                <li>Piano Basics</li>
-                                <li>Techniques</li>
-                                <li>Musical notes</li>
-                                <li>Play your first musical piese</li>
+                            <ul className='workshop_article-topic-list '>
+                                <li> Mandala Outline</li>
+                                <li>Freehand Mandala</li>
+                                <li> Practice drawing</li>
+
                             </ul>
                             <br />
-                            <p>You'll need a Music notebook and a pencil. </p>
+                            <p> Age limit: 13+ </p>
                             <br />
-                            <p style={{ paddingBottom: "10px" }}>Phone number: 01271165428</p>
                         </div>
-
+                        {/* <p style={{ paddingBottom: "10px" }}>Phone number: 01271165428</p> */}
                         {
                             signed ?
                                 <button className='workshop_join-btn-pc'><BiCheckDouble /><span>Submited</span></button>
                                 :
-                                <button onClick={() => AutoFillWorkshop('piano')} className='workshop_join-btn-pc'><RiMenuAddLine /><span>AUTO FILL</span></button>
+                                <button onClick={() => AutoFillWorkshop('mandala')} className='workshop_join-btn-pc'><RiMenuAddLine /><span>AUTO FILL</span></button>
 
                         }
-
 
                     </article>
                 </div>
@@ -85,4 +86,4 @@ const PianoWS = ({ AutoFillWorkshop, fireStoreCurrentUser }) => {
     )
 }
 
-export default PianoWS
+export default MandalaWs

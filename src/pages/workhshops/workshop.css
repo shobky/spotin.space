@@ -4,6 +4,10 @@
     margin-bottom: 20px;
 }
 
+.pspojfdslk {
+    padding-bottom: 70px;
+}
+
 .workshop_burger-menu-icon {
     font-size: 28px;
     position: relative;
@@ -28,7 +32,33 @@
     bottom: 5px;
 }
 
+.workshop_msg {
+    position: fixed;
+    z-index: 999999;
+    color: white;
+    background-color: rgba(0, 216, 97, 0.808);
+    font-weight: bold;
+    padding: 10px 25px 10px 10px;
+    font-size: 17px;
+    width: fit-content;
+    top: 50px;
+}
+
+.workshop_err {
+    position: fixed;
+    z-index: 999999;
+    color: white;
+    background-color: rgba(216, 0, 0, 0.808);
+    font-weight: bold;
+    padding: 10px 25px 10px 10px;
+    font-size: 17px;
+    width: fit-content;
+    top: 50px;
+}
+
 @media (max-width:850px) {
+
+
     .workshop-container {
         display: flex;
         justify-content: center;
@@ -36,7 +66,7 @@
         height: fit-content;
         overflow: hidden;
         position: relative;
-        margin-bottom: 70px;
+        margin-bottom: 30px;
 
     }
 
@@ -99,6 +129,8 @@
         z-index: -1;
         height: 0px;
         transition: ease-in-out .4s;
+        padding-bottom: 30px;
+
 
     }
 
@@ -128,6 +160,7 @@
 
     .workshop-container_basic-info article {
         font-size: 17px;
+
     }
 
     .workshop-container_basic-info article p {
@@ -146,8 +179,7 @@
         background-color: transparent;
         color: rgb(255, 166, 0);
         border: none;
-        padding-bottom: 20px;
-        margin-top: 25px;
+        padding-top: 20px;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -164,6 +196,7 @@
 
 
 @media (min-width:851px) {
+
     .pspojfdslk {
         display: grid;
         grid-template-columns: auto auto auto;
@@ -305,4 +338,14 @@
         color: rgb(255, 166, 0);
         top: 1px;
     }
+}
+
+.woktshop_arapic {
+    text-align: right !important;
+}
+
+.workshop_overflow {
+    max-height: 300px;
+    padding-right: 10px;
+    overflow-y: scroll;
 }

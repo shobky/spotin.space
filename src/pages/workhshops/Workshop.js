@@ -1,29 +1,51 @@
 import React, { useState } from 'react'
 import './workshop.css'
-import english from '../../assets/workhsops/engllish.jpg'
-import graphic from '../../assets/workhsops/graphic.jpg'
 
-
-import { MdExpandMore } from 'react-icons/md'
 import Nav from '../../components/nav/Nav'
-import { IoClose } from 'react-icons/io5'
 import { IoMdSwap } from 'react-icons/io'
-import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import { CgMenuRight } from 'react-icons/cg'
 import HomeMore from '../../components/nav/HomeMore'
-import { RiMenuAddLine } from 'react-icons/ri'
 import PianoWS from './PianoWS'
 import GraphicWS from './GraphicWS'
+import CollageWs from './CollageWS'
+import { useDb } from '../../contexts/FireStoreContext'
+import { doc, setDoc, updateDoc, } from 'firebase/firestore'
+import { db } from '../../firebase/Config'
+import MandalaWs from './MadalaWS'
 
 const Workshop = () => {
     const page = "workshops"
+    const { fireStoreCurrentUser } = useDb()
+    const [msg, setMsg] = useState("")
+    const [err, setErr] = useState("")
+
 
     const showMoreHome = () => {
         const moreHome = document.getElementById('homeMore')
         moreHome.classList.remove('home_showMore__inactive')
         moreHome.classList.add('home_showMore__active')
 
+    }
+
+    const AutoFillWorkshop = (workshop) => {
+        setDoc(doc(db, `${workshop}/${fireStoreCurrentUser.email}`), {
+            fireStoreCurrentUser
+        }).then(() => {
+            updateDoc(doc(db, `Users/${fireStoreCurrentUser.email}`), {
+                workshops: fireStoreCurrentUser.workshops ? [...fireStoreCurrentUser.workshops, workshop] : [workshop]
+            }).then(() => {
+                setMsg(`you are now in the ${workshop} list, we'll be in touch.`)
+                setTimeout(() => {
+                    setMsg('')
+                }, 3000);
+            }).catch(() => {
+                setErr(`Failed to fill your information.`)
+                setTimeout(() => {
+                    setErr('')
+                }, 3000);
+            })
+        })
     }
 
 
@@ -41,12 +63,15 @@ const Workshop = () => {
                 </div>
                 <HomeMore />
             </header>
+            {msg ? <p onClick={() => setMsg('')} className='workshop_msg'>{msg}</p> : err ? <p onClick={() => setErr('')} className='workshop_err'>{err}</p> : ""}
 
             <main className='pspojfdslk'>
-               <PianoWS/>
-               <GraphicWS/>
-            </main>
+                <PianoWS AutoFillWorkshop={AutoFillWorkshop} fireStoreCurrentUser={fireStoreCurrentUser} />
+                <GraphicWS AutoFillWorkshop={AutoFillWorkshop} fireStoreCurrentUser={fireStoreCurrentUser} />
+                <CollageWs AutoFillWorkshop={AutoFillWorkshop} fireStoreCurrentUser={fireStoreCurrentUser} />
+                <MandalaWs AutoFillWorkshop={AutoFillWorkshop} fireStoreCurrentUser={fireStoreCurrentUser} />
 
+            </main>
         </div>
     )
 }

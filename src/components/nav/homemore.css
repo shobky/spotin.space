@@ -106,8 +106,12 @@
 
 .sochail-links-section {
     display: flex;
-    justify-content: center;
-    
+    justify-content: space-between;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 10vh;
 }
 
 .showmore-home-logout-btn {

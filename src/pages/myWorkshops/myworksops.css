@@ -1,0 +1,38 @@
+.my-workshops-workshop-div {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 25px 25px;
+    border-bottom: 1px solid rgb(236, 236, 236);
+    position: relative;
+    top: 7vh;
+}
+
+.my-workshops-workshop-div p {
+    font-size: 22px;
+    font-weight: bold;
+}
+.my-workshops-workshop-div p span {
+    text-transform: capitalize;
+
+}
+
+
+.my-workshops-workshop-div button {
+    background-color: transparent;
+    border: none;
+    padding: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 25px;
+
+}
+
+.my-workshop_remove-icon{
+    font-size: 30px;
+    color: red;
+}

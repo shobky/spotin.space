@@ -67,7 +67,9 @@ const Profile = () => {
 
                 <div className='profile_header-contaienr'>
                     <header>
+                        <div className='profile_header_user-photo_container'>
                         <img className='profile_header_user-photo' src={user.photoURL} alt="" />
+                        </div>
                         <div>
                             {
                                 user.displayName.length > 12 ?
@@ -96,10 +98,10 @@ const Profile = () => {
                             <p className='profile_activity-num'>0</p>
                             <p className='profile_activity-label'>Events</p>
                         </div>
-                        <div>
-                            <p className='profile_activity-num'>0</p>
+                        <Link to='/profile/my-workshops'>
+                            <p className='profile_activity-num'>{fireStoreCurrentUser?.workshops ? fireStoreCurrentUser?.workshops.length : 0}</p>
                             <p className='profile_activity-label'>Workshops</p>
-                        </div>
+                        </Link>
                         <Link style={{ textDecoration: "none" }} to="/profile/orders">
                             <div>
                                 <p className='profile_activity-num'>{userOrders?.length ?? 0}</p>

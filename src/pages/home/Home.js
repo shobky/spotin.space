@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './home.css'
-import commu2 from '../../assets/imgs/comunity2.png'
+import commu2 from '../../assets/imgs/oragneCommun.png'
+import playMeetLearn from '../../assets/imgs/playMeetLearn.png'
 
 //icons
 import { CgCommunity, CgMenuRight } from 'react-icons/cg'
@@ -9,15 +10,15 @@ import { useAuth } from '../../contexts/AuthContext'
 //components
 import Nav from '../../components/nav/Nav'
 import HomeMore from '../../components/nav/HomeMore'
-import dnatree from '../../assets/imgs/dnaTreetxt.png'
+import dnatree from '../../assets/imgs/ecoplanet.png'
 import { collection } from 'firebase/firestore'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { db } from '../../firebase/Config'
 // import Footer from './footer/Footer'
 import musicImg from '../../assets/imgs/music.png';
-import pumpkin from '../../assets/imgs/community.png'
 import { TbTrafficCone } from 'react-icons/tb'
 import Footer from '../footer/Footer'
+import { SiFuturelearn } from 'react-icons/si'
 
 
 const Home = () => {
@@ -63,25 +64,25 @@ const Home = () => {
                     <div className='home_main-flex-container'>
                         <h2 className='home_slogan'>The Space Of The Future.</h2>
                         <div >
-                            <div style={{zIndex:"99"}} className='home_main-aloone-div'>
+                            <div style={{ zIndex: "99" }} className='home_main-aloone-div'>
                                 <div className=' home_main-Link-div'><p>
                                     <CgCommunity className='home_comm-ico dashboard_ico' />COMMUNITY
                                     <span className='home-link-sub-ifo'>
 
-                                       { user? " Thanks for joining our community, welcome" : <Link style={{color:"white", textDecoration:"none"}} to='/signup'>Signup and join our community</Link>} </span>
+                                        {user ? " Thanks for joining our community, welcome" : <Link style={{ color: "white", textDecoration: "none" }} to='/signup'>Signup and join our community</Link>} </span>
                                 </p>
                                 </div>
                             </div>
-                            <div style={{zIndex:"99"}} className='home_link_div-container'>
-                                <div style={{zIndex:"99"}} className='home_main-alone_trafic'>
+                            <div style={{ zIndex: "99" }} className='home_link_div-container'>
+                                <div style={{ zIndex: "99" }} className='home_main-alone_trafic'>
                                     <p className={tktNum > 30 ? "home_main-trafic__high" : tktNum < 10 ? "home_main-alone_trafic-low" : "home_main-trafic__normal"}>
                                         <TbTrafficCone className='dashboard_ico' /> TRAFFIC
                                         <span className='dashboard-link-sub-ifo'>{tktNum > 30 ? "high" : tktNum < 10 ? "low" : "normal"}</span></p>
                                 </div>
-                                <div style={{zIndex:"99"}} className='home_main-halloween-event-div'>
+                                <div style={{ zIndex: "99" }} className='home_main-halloween-event-div'>
                                     <a href='#halloween' className=' home_main-Link-div'><p>
-                                        WORKSHOPS
-                                        <span className='home-link-sub-ifo'> coming soon </span>
+                                        <SiFuturelearn />   WORKSHOPS
+                                        <span className='home-link-sub-ifo'> Start Now </span>
                                     </p>
                                     </a>
                                 </div>
@@ -89,7 +90,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <img alt='' src={commu2}  className="homee_section-1-img" />
+                    <img alt='' src={commu2} className="homee_section-1-img" />
                 </main>
 
             </section>
@@ -97,7 +98,7 @@ const Home = () => {
                 <p className='home_halloween_header'>WORK <br /> <span>SHOPS</span></p>
                 <p className='home_halloween-sub-header'>learn new stuff at spotin</p>
                 <Link to='/workshops' className='home_halloween-btn'>Workshops</Link>
-                <img alt="" src={pumpkin} className="home_halloween-img" />
+                <img alt="" src={playMeetLearn} className="home_halloween-img" />
             </div>
             <div className='home-page-second-section'>
                 <h1 className='s2_header'>Don't get lost, here is the location:</h1>

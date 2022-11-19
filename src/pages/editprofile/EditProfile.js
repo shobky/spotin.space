@@ -91,7 +91,6 @@ const EditProfile = () => {
             </div>
             <Nav />
 
-
             <div className='edit-profile_photo-div'>
                 <img className='edit-profile_img' alt='' src={photoLink ?? user.photoURL ?? Profileblank} />
                 <TbEditCircle className='edit-profile_change-photo' />

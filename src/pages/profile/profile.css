@@ -26,7 +26,7 @@
     padding-top: 60px;
 }
 
-.profile_header_user-photo {
+.profile_header_user-photo_container {
     width: 135px;
     height: 135px;
     border-radius: 50%;
@@ -34,6 +34,19 @@
     border: 2px solid white;
     box-shadow: 0 0 10px 1px rgb(151, 81, 0);
     margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile_header_user-photo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .profile_header-user-info {
@@ -220,7 +233,7 @@
         font-size: 35px;
         color: #ffffff;
         font-family: montserrat-black;
-        
+
     }
 
     .profile_activity-section {
@@ -262,6 +275,7 @@
         margin-left: 30px;
         margin-top: 10px;
     }
+
     .profile_open-order-container {
         margin: 20px;
         height: fit-content;

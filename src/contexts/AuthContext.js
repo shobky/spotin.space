@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
                 displayName: name,
                 photoURL: url
             }).then(() => {
-                setDoc(doc(db, "Users", email), {
+                setDoc(doc(db, "Users", email.toLowerCase()), {
                     email,
                     name,
                     photoURL: url,
@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         if (user) {
             if (user.photoURL) {
-                updateDoc(doc(db, "Users", user.email), {
+                updateDoc(doc(db, "Users", user.email.toLowerCase()), {
                     photoURL: user.photoURL,
                 })
             }
